@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AF OS — Select Environment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #07080b;
+    --surface: #101218;
+    --border: #262a38;
+    --border-hover: #6fe7d4;
+    --text: #edf0f5;
+    --text-dim: #888e9f;
+    --text-faint: #4d5262;
+    --accent: #6fe7d4;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family:'Space Grotesk', sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding: 40px 24px;
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+
+  h1{
+    font-size: 26px;
+    font-weight:600;
+    margin: 0 0 50px;
+    text-align:center;
+  }
+
+  .options{
+    display:flex;
+    flex-direction:row;
+    gap:20px;
+  }
+
+  .option{
+    width:160px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+    text-decoration:none;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 26px 16px 20px;
+    border-radius:6px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .option:hover,
+  .option:focus-visible{
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+    outline:none;
+  }
+
+  .icon{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .icon svg{ width:100%; height:100%; }
+  .icon rect, .icon line{ stroke: var(--text-dim); }
+  .option:hover .icon rect,
+  .option:hover .icon line,
+  .option:focus-visible .icon rect,
+  .option:focus-visible .icon line{ stroke: var(--accent); }
+
+  .option-label{
+    font-size:14.5px;
+    font-weight:600;
+  }
+
+  .option-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color: var(--text-faint);
+    letter-spacing:0.03em;
+  }
+
+  .hint{
+    margin-top: 26px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color: var(--text-faint);
+  }
+
+  .warning-line{
+    margin-top: 40px;
+    font-size:13px;
+    color: var(--text-dim);
+    text-align:center;
+    max-width:480px;
+  }
+  .warning-line strong{ color: var(--text); }
+
+  footer{
+    margin-top: 24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color: var(--text-faint);
+  }
+
+  @media (max-width:420px){
+    .options{ flex-direction:column; align-items:center; }
+  }
+</style>
+</head>
+<body>
+
+  <p class="eyebrow">AF‑OS — Boot Menu</p>
+  <h1>Select an environment</h1>
+
+  <div class="options">
+    <a class="option" href="themes/winxp/boot.html">
+      <div class="icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="6" width="40" height="28" rx="2" stroke-width="2"/>
+          <line x1="4" y1="14" x2="44" y2="14" stroke-width="2"/>
+          <circle cx="9" cy="10" r="1.4" fill="currentColor" stroke="none" style="fill:var(--text-dim)"/>
+          <line x1="18" y1="40" x2="30" y2="40" stroke-width="2" stroke-linecap="round"/>
+          <line x1="24" y1="34" x2="24" y2="40" stroke-width="2"/>
+        </svg>
+      </div>
+      <span class="option-label">Windows XP</span>
+      <span class="option-tag">2001 edition</span>
+    </a>
+
+    <a class="option" href="themes/win11/boot.html">
+      <div class="icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="6" width="40" height="28" rx="2" stroke-width="2"/>
+          <line x1="4" y1="14" x2="44" y2="14" stroke-width="2"/>
+          <circle cx="9" cy="10" r="1.4" fill="currentColor" stroke="none" style="fill:var(--text-dim)"/>
+          <line x1="18" y1="40" x2="30" y2="40" stroke-width="2" stroke-linecap="round"/>
+          <line x1="24" y1="34" x2="24" y2="40" stroke-width="2"/>
+        </svg>
+      </div>
+      <span class="option-label">Windows 11</span>
+      <span class="option-tag">2021 edition</span>
+    </a>
+  </div>
+
+  <p class="hint">click an environment to continue</p>
+
+  <p class="warning-line"><strong>⚠ Built for laptop/PC screens</strong> — this experience is not designed for mobile viewing.</p>
+
+  <footer>AF‑OS v1.0</footer>
+
+</body>
+</html>

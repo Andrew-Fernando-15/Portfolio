@@ -1,0 +1,96 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+/* Full lock screen */
+#lock-screen {
+  height: 100vh;
+  width: 100vw;
+  background-color: #0033aa;
+  background-image: url("../assets/images/lock-screen.png"); /* or lock.jpg if you prefer */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* XP-style user tile on the right side */
+.user-tile {
+  position: absolute;
+  top: 45%;           /* tweak vertically */
+  right: 30%;         /* tweak horizontally */
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 26px 8px 8px;
+  border-radius: 10px;
+  border: 1px solid #5093fd;
+  background: linear-gradient(to right, #1d4fa3, #5ca0ff);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  border: none;       /* remove default button border */
+}
+
+/* Hover glow like XP user tile */
+.user-tile:hover {
+  background: linear-gradient(to right, #2b63c4, #6fb4ff);
+  box-shadow: 0 0 12px hsla(215, 100%, 67%, 0.7);
+}
+
+/* Avatar image inside the tile */
+.user-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  border: 2px solid #ffffff;
+  background-image: url("../assets/icons/avatar.png"); /* your admin logo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* User name text */
+.user-name {
+  font-size: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Power area bottom-left */
+.power-area {
+  position: absolute;
+  left: 16px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.power-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.power-button img {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+}
+
+.power-label {
+  user-select: none;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About This XP Project</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+    }
+
+    .center-image {
+      max-width: 80vw;
+      max-height: 80vh;
+    }
+  </style>
+</head>
+<body>
+  <img src="assets/images/tricked.png" alt="Project info" class="center-image" />
+
+  <script>
+    // After 15 seconds, go back to lock screen
+    setTimeout(function () {
+      window.location.href = "lockscreen.html"; // same folder as tricked.html
+    }, 3000); // 15000 ms = 15 seconds
+  </script>
+</body>
+</html>

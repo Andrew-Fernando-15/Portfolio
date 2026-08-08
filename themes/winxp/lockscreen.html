@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Windows XP Lock Screen</title>
+  <link rel="stylesheet" href="css/lockscreen.css" />
+</head>
+<body>
+  <div id="lock-screen">
+    <!-- Single XP-style user tile -->
+    <button class="user-tile" id="user-tile">
+      <div class="user-avatar"></div>
+      <span class="user-name">Administrator</span>
+    </button>
+
+    <!-- Power area bottom-left (kept) -->
+    <div class="power-area">
+      <button id="power-button" class="power-button">
+        <img src="assets/icons/poweroff.png" alt="Turn off webpage" />
+      </button>
+      <span class="power-label">Turn off webpage</span>
+    </div>
+  </div>
+
+  <script src="js/lockscreen.js"></script>
+</body>
+</html>

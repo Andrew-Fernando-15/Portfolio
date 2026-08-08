@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Windows XP Boot</title>
+  <link rel="stylesheet" href="css/boot.css" />
+</head>
+<body>
+  <!-- Boot splash screen -->
+  <div id="boot-splash">
+    <div class="boot-content">
+      <img src="assets/icons/fdo_andrew.png" alt="Boot Logo" class="boot-logo" />
+      <div class="boot-loading-bar">
+        <div class="boot-loading-fill"></div>
+      </div>
+    </div>
+
+    <!-- Fullscreen usage hint top-left -->
+    <div class="boot-fullscreen-hint">
+      <b id="caution">Not optimized for mobile; best viewed on a PC or laptop.</b>
+      <br>the best experience,<br> press F11 to enter full screen.
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        // After boot, go to the XP desktop (or lock screen)
+        window.location.href = "lockscreen.html"; // change path if needed
+      }, 7000); // 3 seconds
+    });
+  </script>
+</body>
+</html>

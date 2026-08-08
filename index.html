@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AF OS — Andrew Fernando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #07080b;
+    --surface: #10121a;
+    --surface-2: #161923;
+    --border: #242837;
+    --text: #edf0f5;
+    --text-dim: #888e9f;
+    --text-faint: #4d5262;
+    --accent: #6fe7d4;
+    --accent-dim: #3a7d72;
+  }
+
+  *{ box-sizing: border-box; }
+  html,body{ height:100%; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family:'Space Grotesk', sans-serif;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* faint scanline / crt texture */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.012) 0px,
+        rgba(255,255,255,0.012) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+    z-index:5;
+  }
+
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background: radial-gradient(ellipse at 50% 0%, rgba(111,231,212,0.05), transparent 60%);
+    z-index:1;
+  }
+
+  .frame{
+    position:relative;
+    z-index:2;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    max-width:840px;
+    width:100%;
+    margin:0 auto;
+    padding: 8vh 24px 6vh;
+  }
+
+  .content{
+    margin-top: 6vh;
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color: var(--accent);
+    margin:0 0 18px;
+  }
+
+  h1{
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height:1.12;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0 0 22px;
+    max-width: 15ch;
+  }
+
+  h1 em{
+    font-style:normal;
+    color: var(--accent);
+  }
+
+  p.lede{
+    font-size:16.5px;
+    line-height:1.75;
+    color: var(--text-dim);
+    max-width:56ch;
+    margin:0 0 16px;
+  }
+
+  p.lede strong{ color: var(--text); font-weight:500; }
+
+  .meta-row{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+    margin: 34px 0 44px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+  }
+
+  .meta-item{ display:flex; flex-direction:column; gap:4px; }
+  .meta-item .k{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color: var(--text-faint);
+  }
+  .meta-item .v{ font-size:14.5px; color: var(--text); }
+
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background: var(--accent);
+    color: #04120f;
+    font-family:'JetBrains Mono', monospace;
+    font-size:13.5px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    text-decoration:none;
+    padding: 14px 22px;
+    border-radius:4px;
+    border:1px solid var(--accent);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .cta:hover{ transform: translateY(-1px); box-shadow: 0 8px 24px -8px rgba(111,231,212,0.45); }
+  .cta:focus-visible{ outline: 2px solid var(--text); outline-offset:3px; }
+  .cta .arrow{ transition: transform 0.15s ease; }
+  .cta:hover .arrow{ transform: translateX(3px); }
+
+  footer{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color: var(--text-faint);
+    padding: 0 24px 28px;
+  }
+
+  @media (max-width:560px){
+    .frame{ padding: 7vh 20px 5vh; }
+    .meta-row{ gap:20px 26px; }
+  }
+
+  .warning-line{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color: var(--accent);
+    margin: 0 0 30px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="frame">
+    <div class="content">
+      <p class="eyebrow">AF‑OS &nbsp;·&nbsp; Simulation, not an operating system</p>
+      <h1>A desktop built to <em>walk you through</em> the work, not link you away from it.</h1>
+      <p class="lede">
+        Most of what I build lives on the live web already. Rather than send you to a README
+        and a list of repos, this simulates the desktop it would sit on — icons you open,
+        windows you drag, a taskbar that actually runs something.
+      </p>
+      <p class="lede">
+        <strong>It's a portfolio wearing an OS as a shell.</strong> Everything you can click
+        opens a real project, live, in its own window.
+      </p>
+
+      <p class="warning-line"><strong>⚠ Built for laptop/PC screens — this experience is not designed for mobile viewing.</strong></p>
+
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="k">Built by</span>
+          <span class="v">Andrew Fernando</span>
+        </div>
+        <div class="meta-item">
+          <span class="k">Stack</span>
+          <span class="v">HTML · CSS · Vanilla JS</span>
+        </div>
+        <div class="meta-item">
+          <span class="k">Status</span>
+          <span class="v">2 environments available</span>
+        </div>
+      </div>
+
+      <a class="cta" href="choice.html">
+        Continue to boot menu <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <footer>AF‑OS v1.0 &nbsp;—&nbsp; press continue to select an environment</footer>
+
+</body>
+</html>

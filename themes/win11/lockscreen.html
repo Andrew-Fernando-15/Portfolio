@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lockscreen</title>
+  <link rel="stylesheet" href="css/lockscreen.css">
+</head>
+<body>
+
+  <div class="background"></div>
+  <div id="petal-container"></div>
+
+  <!-- 🔥 CLOCK (OUTSIDE UI - ALWAYS VISIBLE) -->
+  <div class="clockBox">
+    <div id="day"></div>
+    <div id="date"></div>
+    <div id="time"></div>
+  </div>
+
+  <!-- SLIDE TO UNLOCK (hidden until the background is tapped) -->
+  <div id="unlockArea">
+    <div id="sliderTrack">
+      <div id="sliderFill"></div>
+      <span id="sliderText">Slide to unlock</span>
+      <div id="sliderCircle">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 6L15 12L9 18" stroke="#000" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/lockscreen.js"></script>
+</body>
+</html>
